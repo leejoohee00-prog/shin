@@ -1,712 +1,389 @@
-<!DOCTYPE html>
+
+Claude가 응답을 완료했습니다
+
+명령 2개 실행함
+명령 2개 실행함
+업로드하신 파일을 열어봤는데, 두 가지가 눈에 띄어요.
+
+1) 파일명 문제 (404의 원인일 가능성 높음)
+이 파일이 컴퓨터에 index_html.html처럼 **점(.) 대신 밑줄(_)**이 들어간 이름으로 저장되어 있진 않으셨나요? GitHub Pages는 정확히 index.html(점 하나, 밑줄 없이)이어야만 인식해요. index_html.html이라는 이름으로 GitHub에 올리셨다면 그게 바로 404의 원인이에요. 저장소에 있는 실제 파일명을 다시 한번 확인해주세요.
+
+2) 내용이 저희가 만든 원숭이 타이머가 아니에요
+이 파일은 제목이 "발표 타이머"이고, 저희가 지금까지 같이 만든 원숭이 테마 타이머(정글 배경, 🐵 이모지, 우끼 소리 등)와는 완전히 다른 코드예요. 혹시 다른 곳에서 받으신 파일을 잘못 올리신 건 아닐까요?
+
+확인 부탁드려요:
+
+GitHub 저장소에 있는 실제 파일 이름이 정확히 index.html이 맞는지
+지금 올리신 이 "발표 타이머" 파일을 올리려고 하신 게 맞는지, 아니면 제가 만들어드린 원숭이 타이머(timer-app.html)를 올리려고 하신 건지
+1787129975641_image.png
+파일명이 잘 못 됐어.. 저거 다시 어떻게 올려?
+
+
+7초 동안 생각함
+7초 동안 생각함
+재배포 후 접속 확인
+1~2분 기다렸다가 https://leejoohee00-prog.github.io/shin/ 에 다시 접속해보세요. 이제는 404 없이 페이지가 열려야 해요.
+1
+2
+3
+4
+참고로 파일명 고치는 것과 별개로, 이 파일 내용 자체가 "발표 타이머"라 저희가 같이 만든 원숭이 테마 타이머와는 달라요. 이대로 쓰실 계획이면 상관없지만, 혹시 원숭이 타이머(timer-app.html)를 올리시려던 거였다면 이번에 파일명 고칠 때 내용도 그걸로 다시 올려주셔야 해요.
+
+파일을 잘 못 넣었어 파일 다시 업로드 하려면?
+
+
+11초 동안 생각함
+11초 동안 생각함
+잘못 올린 파일 삭제
+GitHub 저장소('shin') 메인 화면에서 지금 있는 잘못된 파일(index.html.html)을 클릭하고, 오른쪽 위 휴지통(휴지통) 아이콘을 누르거나 '...' 메뉴에서 'Delete file'을 누르세요. 아래 'Commit changes'로 삭제를 확정하세요.
+1
+2
+3
+4
+5
+1단계에서 헷갈리시면, 아까 만들어드린 timer-app.html 파일을 다시 다운로드하실 수 있게 여기 다시 올려드릴게요.
+
+
+Presented file
+Presented file
+다운로드 후 파일명을 index.html로 바꿔서 위 순서대로 올려주시면 돼요.
+
+
+Timer app
+코드 · HTML 
+1787130814918_image.png
+어디야?
+
+
+12초 동안 생각함
+12초 동안 생각함
+지금 계신 화면은 파일 내용을 직접 수정하는 편집 화면이에요. 파일명은 index.html로 잘 고치셨는데, 내용(코드)은 아직 예전 "발표 타이머" 그대로예요 (6번째 줄에 발표 타이머라고 보이시죠?). 파일명만 바꾼다고 내용까지 바뀌진 않아요.
+
+여기서 바로 고치는 방법이 제일 빨라요:
+
+원숭이 코드 붙여넣기
+제가 바로 아래에 원숭이 타이머 전체 코드를 붙여드릴게요. 그걸 복사해서 빈 편집창에 붙여넣으세요 (Ctrl+V 또는 Cmd+V).
+1
+2
+3
+4
+5
+아래 코드 전체를 복사해서 붙여넣으시면 돼요:
+
+
+명령 실행함, 파일 조회함
+명령 실행함, 파일 조회함
+html
+<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>발표 타이머</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>타이머</title>
 <style>
   :root{
-    --bg: #0A0C10;
-    --panel: #14171D;
-    --panel-line: #262B33;
-    --fg: #F3F5F7;
-    --fg-dim: #8A93A1;
-    --amber: #F0A93C;
-    --amber-dim: #6B5228;
-    --green: #34D399;
-    --red: #FF4B5C;
-    --ring-track: #1E222A;
-    --danger-bg: #2A1013;
-
-    /* zoo theme */
-    --sky-top: #8FD3F4;
-    --sky-bottom: #C9ECFB;
-    --grass-top: #7BC96F;
-    --grass-bottom: #559B4B;
-    --wood: #A9713F;
-    --wood-dark: #7A4E27;
-    --card-cream: #FFF7E4;
-    --card-text: #5B3A1E;
-    --card-text-dim: #8A6B49;
-    --elephant: #A7B0B8;
-    --elephant-dark: #838D95;
+    --bg: #000000;
+    --card: #171E36;
+    --card-edge: #232B4C;
+    --ink: #F3F1EA;
+    --muted: #8A90B8;
+    --accent: #35D0A8;
+    --accent-dim: #1E3A38;
+    --danger: #FF6B6B;
+    --danger-dim: #3A2230;
+    --track: #1F2645;
   }
-
-  *{ box-sizing: border-box; margin:0; padding:0; }
-
-  html,body{
-    height:100%;
-    background:
-      radial-gradient(90px 90px at 87% 10%, #FFDE7A 0%, #FFDE7A 55%, transparent 60%),
-      radial-gradient(110px 55px at 12% 14%, rgba(255,255,255,0.85), transparent 70%),
-      radial-gradient(80px 42px at 26% 20%, rgba(255,255,255,0.75), transparent 70%),
-      linear-gradient(to bottom, var(--sky-top) 0%, var(--sky-bottom) 58%, var(--grass-top) 58%, var(--grass-bottom) 100%);
-    color:var(--fg);
-    font-family:'Inter', sans-serif;
-    overflow:hidden;
-    -webkit-tap-highlight-color: transparent;
-    user-select:none;
+  *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body{
+    margin:0; padding:0; min-height:100%;
+    background: linear-gradient(180deg, #1E3B29 0%, #2C5236 38%, #6B7B3A 72%, #C9A66B 100%);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    overflow-x:hidden;
+    position: relative;
   }
-
-  .zoo-critter{
-    position:fixed;
-    pointer-events:none;
-    font-size:56px;
-    opacity:0.4;
-    filter:drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+  .leaf-deco{
+    position: fixed; font-size: 90px; opacity:.16; pointer-events:none;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,.3));
     z-index:0;
   }
-
-  .app{
-    position:relative;
-    z-index:1;
-    height:100vh;
-    height:100dvh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    transition: background 0.4s ease;
+  .leaf-tl{ top:-20px; left:-24px; transform: rotate(-18deg); }
+  .leaf-br{ bottom:-24px; right:-20px; transform: rotate(160deg); }
+  .leaf-bl{ bottom:10px; left:-30px; font-size:70px; transform: rotate(-100deg); opacity:.12; }
+  #root{ position:relative; z-index:1; }
+  #root{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding: 24px 16px; }
+  .app{ width:100%; max-width: 380px; display:flex; flex-direction:column; gap:18px; align-items:center; }
+  .ring-wrap{ position:relative; width: min(70vw, 260px); height: min(70vw, 260px); }
+  .ring-wrap svg{ width:100%; height:100%; transform: rotate(-90deg); }
+  .ring-ear{ fill: #5C3A21; transition: fill .3s ease; }
+  .ring-face{ fill: #C68B59; transition: fill .3s ease; }
+  .ring-ear.angry{ fill: #7A2E1A; }
+  .ring-face.angry{ fill: #B8552E; }
+  .ring-wrap.angry{ animation: angryShake .35s ease infinite; }
+  @keyframes angryShake{
+    0%,100%{ transform: rotate(0deg); }
+    25%{ transform: rotate(-3deg); }
+    75%{ transform: rotate(3deg); }
   }
-
-  .app.finished{
-    background: var(--danger-bg);
+  .ring-bg{ fill:none; stroke: rgba(0,0,0,.28); stroke-width: 10; }
+  .ring-fg{ fill:none; stroke: var(--accent); stroke-width: 10; stroke-linecap: round; transition: stroke-dashoffset .25s linear, stroke .3s ease; }
+  .ring-fg.danger{ stroke: var(--danger); }
+  .ring-center{
+    position:absolute; inset:0; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:4px;
   }
-
-  /* ---------- SETUP SCREEN ---------- */
-  #setupScreen{
-    width:100%;
-    max-width:520px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:36px;
+  .ring-emoji{
+    font-size: clamp(30px, 9vw, 44px); line-height:1;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,.4));
   }
-
-  .setup-title{
-    text-align:center;
-  }
-  .setup-title .eyebrow{
-    font-family:'Inter', sans-serif;
-    font-weight:600;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    font-size:13px;
-    color:var(--amber);
-  }
-
-  .time-input-group{
-    display:flex;
-    align-items:baseline;
-    justify-content:center;
-    gap:14px;
-    background:var(--card-cream);
-    border:6px solid var(--wood);
-    border-radius:24px;
-    padding:28px 32px;
-    width:100%;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.18);
-  }
-  .field{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:8px;
-  }
-  .field label{
-    font-size:13px;
-    color:var(--card-text-dim);
-    font-weight:700;
-  }
-  .field input{
-    width:100%;
-    max-width:120px;
-    background:transparent;
-    border:none;
-    color:var(--card-text);
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size:clamp(40px, 10vw, 56px);
-    text-align:center;
-    outline:none;
-    -moz-appearance: textfield;
-  }
-  .field input::-webkit-outer-spin-button,
-  .field input::-webkit-inner-spin-button{
-    -webkit-appearance:none;
-    margin:0;
-  }
-  .colon{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size:clamp(32px, 8vw, 44px);
-    color:var(--wood);
-    align-self:center;
-    padding-top:22px;
-  }
-
-  .presets{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:center;
-    width:100%;
-  }
-  .preset-btn{
-    padding:12px 22px;
-    border-radius:999px;
-    border:2px solid var(--wood);
-    background:var(--card-cream);
-    color:var(--wood-dark);
-    font-family:'Inter', sans-serif;
-    font-weight:700;
-    font-size:16px;
-    cursor:pointer;
-    transition: all 0.15s ease;
-  }
-  .preset-btn:hover{ background:var(--wood); color:#fff; }
-  .preset-btn:active{
-    background:var(--wood-dark);
-    border-color:var(--wood-dark);
-    color:#fff;
-    transform:scale(0.96);
-  }
-
-  .start-btn{
-    position:relative;
-    width:100%;
-    padding:22px;
-    margin-top:14px;
-    border-radius:26px;
-    border:none;
-    background:linear-gradient(180deg, var(--elephant) 0%, var(--elephant-dark) 100%);
-    color:#242A2E;
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size:clamp(20px, 4vw, 26px);
-    cursor:pointer;
-    letter-spacing:0.02em;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.22);
-    transition: transform 0.12s ease, filter 0.12s ease;
-  }
-  .start-btn::before,
-  .start-btn::after{
-    content:"";
-    position:absolute;
-    top:-16px;
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    background:var(--elephant);
-    z-index:-1;
-  }
-  .start-btn::before{ left:14px; }
-  .start-btn::after{ right:14px; }
-  .start-btn .emoji{ font-size:1.3em; line-height:1; }
-  .start-btn:hover{ filter:brightness(1.06); }
-  .start-btn:active{ transform:scale(0.98); }
-
-  /* ---------- TIMER SCREEN ---------- */
-  #timerScreen{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:40px;
-    width:100%;
-    height:100%;
-  }
-
-  .timer-panel{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:40px;
-    background:rgba(10,12,16,0.9);
-    border:6px solid var(--wood);
-    border-radius:36px;
-    padding:clamp(24px, 4vw, 56px) clamp(20px, 5vw, 60px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    max-width:96vw;
-    max-height:94dvh;
-  }
-
-  .label-tag{
-    font-family:'Inter', sans-serif;
-    font-weight:600;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    font-size:clamp(13px, 1.6vw, 16px);
-    color:var(--fg-dim);
-  }
-
-  .ring-wrap{
-    position:relative;
-    width:min(62vmin, 560px);
-    height:min(62vmin, 560px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .ring-wrap svg{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    transform:rotate(-90deg);
-  }
-
-  .ring-track{
-    fill:none;
-    stroke:var(--ring-track);
-    stroke-width:14;
-  }
-  .ring-progress{
-    fill:none;
-    stroke: var(--fg);
-    stroke-width:14;
-    stroke-linecap:round;
-    transition: stroke-dashoffset 0.9s linear, stroke 0.3s ease;
-  }
-
   .time-display{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size:min(20vmin, 190px);
-    line-height:1;
-    letter-spacing:-0.02em;
-    font-variant-numeric: tabular-nums;
-    color:var(--fg);
-    transition: color 0.3s ease;
+    font-size: clamp(26px, 8vw, 36px); font-weight:700;
+    font-variant-numeric: tabular-nums; letter-spacing:-0.02em;
   }
+  .time-display.danger{ color: var(--danger); }
+  .state-label{ font-size:12px; color: var(--muted); letter-spacing:.05em; }
 
-  .time-display.state-green{ color:var(--green); }
-  .time-display.state-red{ color:var(--red); animation: blink-red 1s steps(1) infinite; }
-  .ring-progress.state-green{ stroke:var(--green); }
-  .ring-progress.state-red{ stroke:var(--red); animation: blink-ring 1s steps(1) infinite; }
+  .presets{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .preset-btn{
+    padding: 8px 14px; border-radius:999px; border:1px solid var(--card-edge);
+    background: var(--card); color: var(--ink); font-size:13px; font-weight:600;
+    cursor:pointer; font-family:inherit;
+  }
+  .preset-btn:active{ transform: scale(.94); }
+  .preset-btn.active{ background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
 
-  @keyframes blink-red{
-    0%, 49%{ opacity:1; }
-    50%, 100%{ opacity:0.25; }
+  .custom-row{ display:flex; align-items:center; gap:8px; }
+  .custom-input{
+    width: 62px; text-align:center; font-size:18px; padding: 8px 4px;
+    border-radius:10px; border:1.5px solid var(--card-edge);
+    background: var(--card); color: var(--ink); font-variant-numeric: tabular-nums;
   }
-  @keyframes blink-ring{
-    0%, 49%{ opacity:1; }
-    50%, 100%{ opacity:0.25; }
-  }
+  .custom-input:focus{ outline:none; border-color:#3D4470; }
+  .custom-sep{ color: var(--muted); font-size:13px; }
+  .custom-label{ color: var(--muted); font-size:12px; margin-right:2px; }
 
-  /* 10~6 seconds: building tension, mild rumble */
-  .ring-wrap.rumble{
-    animation: shake-wrap-mild 0.5s ease-in-out infinite;
+  .controls{ display:flex; gap:10px; width:100%; }
+  button.act{
+    flex:1; border:none; border-radius:16px; padding: 14px 8px;
+    font-size:15px; font-weight:700; font-family:inherit; cursor:pointer;
+    transition: transform .08s ease, opacity .2s ease;
   }
-  @keyframes shake-wrap-mild{
-    0%{ transform: translate(0,0) rotate(0deg); }
-    25%{ transform: translate(-3px, 2px) rotate(-0.5deg); }
-    50%{ transform: translate(3px, -2px) rotate(0.5deg); }
-    75%{ transform: translate(-2px, -2px) rotate(-0.4deg); }
-    100%{ transform: translate(0,0) rotate(0deg); }
-  }
+  button.act:active{ transform: scale(.96); }
+  button.act:disabled{ opacity:.4; cursor:default; }
+  .btn-start{ background: var(--accent); color:#08201A; }
+  .btn-pause{ background: #FFD166; color:#3A2A00; }
+  .btn-reset{ background: var(--track); color: var(--ink); }
 
-  /* last 5 seconds: shake + pulse like it's about to explode */
-  .ring-wrap.critical{
-    animation: shake-wrap 0.28s ease-in-out infinite;
+  .done-banner{
+    display:none; text-align:center; color: var(--danger); font-size:14px; font-weight:700;
   }
-  .time-display.state-red.critical{
-    animation: blink-red 1s steps(1) infinite, pulse-grow 0.28s ease-in-out infinite;
-  }
-  @keyframes shake-wrap{
-    0%{ transform: translate(0,0) rotate(0deg); }
-    20%{ transform: translate(-6px, 4px) rotate(-1.2deg); }
-    40%{ transform: translate(5px, -5px) rotate(1.4deg); }
-    60%{ transform: translate(-5px, -3px) rotate(-0.8deg); }
-    80%{ transform: translate(6px, 4px) rotate(1deg); }
-    100%{ transform: translate(0,0) rotate(0deg); }
-  }
-  @keyframes pulse-grow{
-    0%, 100%{ transform: scale(1); }
-    50%{ transform: scale(1.06); }
-  }
-
-  .end-message{
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:700;
-    font-size:clamp(28px, 6vw, 44px);
-    color:var(--red);
-    letter-spacing:0.02em;
-  }
-
-  .controls{
-    display:flex;
-    gap:16px;
-    width:100%;
-    max-width:640px;
-    padding:0 12px;
-  }
-
-  .ctrl-btn{
-    flex:1;
-    padding:20px 12px;
-    border-radius:16px;
-    border:1px solid var(--panel-line);
-    background:var(--panel);
-    color:var(--fg);
-    font-family:'Inter', sans-serif;
-    font-weight:600;
-    font-size:clamp(15px, 2vw, 18px);
-    cursor:pointer;
-    transition: all 0.12s ease;
-  }
-  .ctrl-btn:hover{ border-color:var(--fg-dim); }
-  .ctrl-btn:active{ transform:scale(0.97); }
-
-  .ctrl-btn.primary{
-    background:var(--amber);
-    border-color:var(--amber);
-    color:#1A1300;
-  }
-  .ctrl-btn.primary:hover{ filter:brightness(1.08); }
-
-  .ctrl-btn.danger:hover{ border-color:var(--red); color:var(--red); }
-
-  [hidden]{ display:none !important; }
-
-  @media (max-width:480px){
-    .controls{ flex-wrap:wrap; }
-    .ctrl-btn{ flex:1 1 45%; }
-  }
+  .done-banner.show{ display:block; animation: blink 1s ease infinite; }
+  @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:.4; } }
 </style>
 </head>
 <body>
-
-<!-- zoo scenery decorations -->
-<span class="zoo-critter" style="left:4%; bottom:6%;">🦁</span>
-<span class="zoo-critter" style="left:82%; bottom:5%; font-size:64px;">🦒</span>
-<span class="zoo-critter" style="left:20%; bottom:3%; font-size:40px;">🐒</span>
-<span class="zoo-critter" style="left:65%; bottom:4%; font-size:44px;">🦓</span>
-<span class="zoo-critter" style="left:45%; bottom:2%; font-size:36px;">🌴</span>
-<span class="zoo-critter" style="left:6%; bottom:2%; font-size:34px;">🌳</span>
-
-<div class="app" id="app">
-
-  <!-- SETUP -->
-  <section id="setupScreen">
-    <div class="setup-title">
-      <div class="eyebrow">Presentation Timer</div>
-    </div>
-
-    <div class="time-input-group">
-      <div class="field">
-        <input type="number" id="minInput" value="0" min="0" max="180" inputmode="numeric">
-        <label>분</label>
-      </div>
-      <div class="colon">:</div>
-      <div class="field">
-        <input type="number" id="secInput" value="0" min="0" max="59" inputmode="numeric">
-        <label>초</label>
-      </div>
-    </div>
-
-    <div class="presets">
-      <button class="preset-btn" data-add="1">+1분</button>
-      <button class="preset-btn" data-add="5">+5분</button>
-      <button class="preset-btn" data-add="10">+10분</button>
-      <button class="preset-btn" data-add="-1">-1분</button>
-      <button class="preset-btn" data-add="-5">-5분</button>
-    </div>
-
-    <button class="start-btn" id="startBtn"><span class="emoji">🐘</span> 시작</button>
-  </section>
-
-  <!-- TIMER -->
-  <section id="timerScreen" hidden>
-    <div class="timer-panel">
-      <div class="label-tag" id="statusTag">발표 진행 중</div>
-
-      <div class="ring-wrap" id="ringWrap">
-        <svg viewBox="0 0 500 500">
-          <circle class="ring-track" cx="250" cy="250" r="230"></circle>
-          <circle class="ring-progress" id="ringProgress" cx="250" cy="250" r="230"></circle>
-        </svg>
-        <div class="time-display" id="timeDisplay">00:00</div>
-      </div>
-
-      <div class="controls">
-        <button class="ctrl-btn primary" id="pauseBtn">일시정지</button>
-        <button class="ctrl-btn" id="resetBtn">리셋</button>
-        <button class="ctrl-btn danger" id="stopBtn">정지</button>
-      </div>
-    </div>
-  </section>
-
-</div>
+<div class="leaf-deco leaf-tl">🌿</div>
+<div class="leaf-deco leaf-br">🌴</div>
+<div class="leaf-deco leaf-bl">🍃</div>
+<div id="root"></div>
 
 <script>
-(function(){
-  const appEl = document.getElementById('app');
-  const setupScreen = document.getElementById('setupScreen');
-  const timerScreen = document.getElementById('timerScreen');
-  const minInput = document.getElementById('minInput');
-  const secInput = document.getElementById('secInput');
-  const startBtn = document.getElementById('startBtn');
-  const pauseBtn = document.getElementById('pauseBtn');
-  const resetBtn = document.getElementById('resetBtn');
-  const stopBtn = document.getElementById('stopBtn');
-  const timeDisplay = document.getElementById('timeDisplay');
-  const ringProgress = document.getElementById('ringProgress');
-  const ringWrap = document.getElementById('ringWrap');
-  const statusTag = document.getElementById('statusTag');
-  const presetBtns = document.querySelectorAll('.preset-btn');
+const RADIUS = 100;
+const CIRC = 2 * Math.PI * RADIUS;
+const PRESETS = [10, 30, 60, 180, 300, 600]; // 10초, 30초, 1분, 3분, 5분, 10분
 
-  const RADIUS = 230;
-  const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-  ringProgress.style.strokeDasharray = CIRCUMFERENCE;
-  ringProgress.style.strokeDashoffset = 0;
+let totalSeconds = 300; // 기본 5분
+let remainingSeconds = 300;
+let running = false;
+let intervalId = null;
+let audioCtx = null;
 
-  let totalSeconds = 0;
-  let remaining = 0;
-  let intervalId = null;
-  let isPaused = false;
-  let isFinished = false;
-  let lastCriticalSecond = null;
+function pad(n){ return String(n).padStart(2,"0"); }
+function formatTime(s){
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${pad(m)}:${pad(sec)}`;
+}
 
-  // last 5 seconds: countdown digit morphs into an animal whose shape echoes the numeral
-  const ANIMAL_MAP = {
-    5: '🐍',  // 뱀 - 5의 구불구불한 곡선
-    4: '🦌',  // 사슴 - 4의 뾰족한 뿔 모양 꼭짓점
-    3: '🦋',  // 나비 - 3의 대칭적인 두 곡선(날개)
-    2: '🦢',  // 백조 - 2의 목처럼 휘어진 곡선
-    1: '🦒'   // 기린 - 1의 가늘고 긴 세로선
-  };
-
-  presetBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const add = parseInt(btn.dataset.add, 10) || 0;
-      const currentTotalMin = (parseInt(minInput.value, 10) || 0);
-      minInput.value = Math.max(0, Math.min(180, currentTotalMin + add));
+function playBeep(){
+  try{
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioCtx.currentTime;
+    const calls = [
+      {start:0.00, dur:0.16, f1:320, f2:820},
+      {start:0.20, dur:0.14, f1:380, f2:900},
+      {start:0.38, dur:0.17, f1:300, f2:780},
+      {start:0.60, dur:0.13, f1:420, f2:950},
+      {start:0.78, dur:0.16, f1:340, f2:840}
+    ];
+    calls.forEach(c => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = "sawtooth";
+      osc.frequency.setValueAtTime(c.f1, now + c.start);
+      osc.frequency.linearRampToValueAtTime(c.f2, now + c.start + c.dur * 0.45);
+      osc.frequency.linearRampToValueAtTime(c.f1 * 0.85, now + c.start + c.dur);
+      gain.gain.setValueAtTime(0.0001, now + c.start);
+      gain.gain.exponentialRampToValueAtTime(0.28, now + c.start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + c.start + c.dur);
+      osc.connect(gain).connect(audioCtx.destination);
+      osc.start(now + c.start);
+      osc.stop(now + c.start + c.dur + 0.02);
     });
-  });
+  } catch(e){}
+  if(navigator.vibrate) navigator.vibrate([200,100,200,100,200]);
+}
 
-  function formatTime(s){
-    const m = Math.floor(s / 60);
-    const sec = s % 60;
-    return String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
-  }
-
-  function updateVisualState(){
-    timeDisplay.classList.remove('state-green','state-red');
-    ringProgress.classList.remove('state-green','state-red');
-    if(remaining <= 30){
-      timeDisplay.classList.add('state-red');
-      ringProgress.classList.add('state-red');
-    } else if(remaining <= 60){
-      timeDisplay.classList.add('state-green');
-      ringProgress.classList.add('state-green');
-    }
-
-    timeDisplay.classList.remove('critical');
-    ringWrap.classList.remove('critical','rumble');
-
-    if(!isFinished && remaining > 0){
-      if(remaining <= 5){
-        timeDisplay.classList.add('critical');
-        ringWrap.classList.add('critical');
-      } else if(remaining <= 10){
-        ringWrap.classList.add('rumble');
-      }
-    }
-  }
-
-  function render(){
-    if(!isFinished && remaining >= 1 && remaining <= 5){
-      timeDisplay.textContent = ANIMAL_MAP[remaining];
-    } else {
-      timeDisplay.textContent = formatTime(remaining);
-    }
-    const fraction = totalSeconds > 0 ? remaining / totalSeconds : 0;
-    ringProgress.style.strokeDashoffset = CIRCUMFERENCE * (1 - fraction);
-    updateVisualState();
-  }
-
-  let sharedCtx = null;
-  function getCtx(){
-    if(!sharedCtx){
-      sharedCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    return sharedCtx;
-  }
-
-  function playNote(ctx, freq, startAt, dur, type, peakGain){
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.type = type || 'triangle';
-    osc.frequency.value = freq;
-    gain.gain.setValueAtTime(0.0001, ctx.currentTime + startAt);
-    gain.gain.exponentialRampToValueAtTime(peakGain || 0.25, ctx.currentTime + startAt + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + startAt + dur);
-    osc.start(ctx.currentTime + startAt);
-    osc.stop(ctx.currentTime + startAt + dur + 0.02);
-  }
-
-  // sharp countdown tick for the last 5 seconds
-  function playCriticalTick(){
-    try{
-      const ctx = getCtx();
-      playNote(ctx, 1046.5, 0, 0.12, 'square', 0.22);
-    }catch(e){}
-  }
-
-  // soft, low tension-building tick for 10~6 seconds
-  function playRumbleTick(){
-    try{
-      const ctx = getCtx();
-      playNote(ctx, 196.0, 0, 0.18, 'sine', 0.12);
-    }catch(e){}
-  }
-
-  // short piano-like waltz phrase, in the spirit of Chopin, played when time is up
-  function playChopinFinale(){
-    try{
-      const ctx = getCtx();
-      const beat = 0.28;
-      // a gentle descending waltz figure, triple-meter feel (long-short-short)
-      const melody = [
-        { n: 587.33, d: 2 },   // D5
-        { n: 698.46, d: 1 },   // F5
-        { n: 880.00, d: 1 },   // A5
-        { n: 783.99, d: 2 },   // G5
-        { n: 698.46, d: 1 },   // F5
-        { n: 659.25, d: 1 },   // E5
-        { n: 587.33, d: 2 },   // D5
-        { n: 523.25, d: 1 },   // C5
-        { n: 587.33, d: 1 },   // D5
-        { n: 493.88, d: 3 },   // B4 (resolve)
-      ];
-      let t = 0;
-      melody.forEach(note => {
-        const dur = note.d * beat;
-        playNote(ctx, note.n, t, dur * 0.95, 'triangle', 0.22);
-        playNote(ctx, note.n / 2, t, dur * 0.95, 'sine', 0.08);
-        t += dur;
-      });
-    }catch(e){}
-  }
-
-  function tick(){
-    if(isPaused || isFinished) return;
-    remaining -= 1;
-    if(remaining <= 0){
-      remaining = 0;
-      render();
-      finish();
-      return;
-    }
-    render();
-    if(remaining <= 10 && remaining > 5 && remaining !== lastCriticalSecond){
-      lastCriticalSecond = remaining;
-      playRumbleTick();
-    } else if(remaining <= 5 && remaining !== lastCriticalSecond){
-      lastCriticalSecond = remaining;
-      playCriticalTick();
-    }
-  }
-
-  function finish(){
-    isFinished = true;
-    clearInterval(intervalId);
-    intervalId = null;
-    appEl.classList.add('finished');
-    statusTag.textContent = '시간 종료';
-    timeDisplay.textContent = '종료';
-    timeDisplay.classList.remove('state-green','critical');
-    timeDisplay.classList.add('state-red');
-    ringProgress.classList.remove('state-green');
-    ringProgress.classList.add('state-red');
-    ringWrap.classList.remove('critical','rumble');
-    ringProgress.style.strokeDashoffset = CIRCUMFERENCE;
-    pauseBtn.disabled = true;
-    playChopinFinale();
-  }
-
-  function startTimer(){
-    const m = parseInt(minInput.value, 10) || 0;
-    const s = parseInt(secInput.value, 10) || 0;
-    totalSeconds = Math.max(1, m * 60 + s);
-    remaining = totalSeconds;
-    isPaused = false;
-    isFinished = false;
-    lastCriticalSecond = null;
-    appEl.classList.remove('finished');
-    pauseBtn.disabled = false;
-    pauseBtn.textContent = '일시정지';
-    statusTag.textContent = '발표 진행 중';
-    setupScreen.hidden = true;
-    timerScreen.hidden = false;
-    render();
-    clearInterval(intervalId);
-    intervalId = setInterval(tick, 1000);
-  }
-
-  function togglePause(){
-    if(isFinished) return;
-    isPaused = !isPaused;
-    pauseBtn.textContent = isPaused ? '재개' : '일시정지';
-    statusTag.textContent = isPaused ? '일시정지됨' : '발표 진행 중';
-  }
-
-  function resetTimer(){
-    remaining = totalSeconds;
-    isPaused = false;
-    isFinished = false;
-    lastCriticalSecond = null;
-    appEl.classList.remove('finished');
-    timeDisplay.classList.remove('critical');
-    ringWrap.classList.remove('critical','rumble');
-    pauseBtn.disabled = false;
-    pauseBtn.textContent = '일시정지';
-    statusTag.textContent = '발표 진행 중';
-    render();
-    clearInterval(intervalId);
-    intervalId = setInterval(tick, 1000);
-  }
-
-  function stopTimer(){
-    clearInterval(intervalId);
-    intervalId = null;
-    isPaused = false;
-    isFinished = false;
-    lastCriticalSecond = null;
-    appEl.classList.remove('finished');
-    timeDisplay.classList.remove('critical');
-    ringWrap.classList.remove('critical','rumble');
-    timerScreen.hidden = true;
-    setupScreen.hidden = false;
-  }
-
-  startBtn.addEventListener('click', startTimer);
-  pauseBtn.addEventListener('click', togglePause);
-  resetBtn.addEventListener('click', resetTimer);
-  stopBtn.addEventListener('click', stopTimer);
-
-  document.addEventListener('keydown', (e) => {
-    if(e.code === 'Space'){
-      e.preventDefault();
-      if(!timerScreen.hidden){ togglePause(); }
-      else { startTimer(); }
-    }
-  });
-
+function setPreset(sec){
+  if(running) return;
+  totalSeconds = sec;
+  remainingSeconds = sec;
   render();
-})();
-</script>
+}
 
+function applyCustom(){
+  const mEl = document.getElementById("customMin");
+  const sEl = document.getElementById("customSec");
+  let m = parseInt(mEl.value, 10); if(isNaN(m) || m < 0) m = 0;
+  let s = parseInt(sEl.value, 10); if(isNaN(s) || s < 0) s = 0;
+  const total = m*60 + s;
+  if(total <= 0) return;
+  totalSeconds = total;
+  remainingSeconds = total;
+  render();
+}
+
+function playTick(){
+  try{
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = 700;
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.25, now + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.13);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.15);
+  } catch(e){}
+  if(navigator.vibrate) navigator.vibrate(60);
+}
+
+function start(){
+  if(running || remainingSeconds <= 0) return;
+  running = true;
+  intervalId = setInterval(() => {
+    remainingSeconds -= 1;
+    if(remainingSeconds > 0 && remainingSeconds <= 3){
+      playTick();
+    }
+    if(remainingSeconds <= 0){
+      remainingSeconds = 0;
+      running = false;
+      clearInterval(intervalId);
+      playBeep();
+    }
+    render();
+  }, 1000);
+  render();
+}
+
+function pause(){
+  running = false;
+  clearInterval(intervalId);
+  render();
+}
+
+function reset(){
+  running = false;
+  clearInterval(intervalId);
+  remainingSeconds = totalSeconds;
+  render();
+}
+
+function render(){
+  const pct = totalSeconds > 0 ? remainingSeconds / totalSeconds : 0;
+  const offset = CIRC * (1 - pct);
+  const isDanger = remainingSeconds <= 10 && remainingSeconds > 0;
+  const isDone = remainingSeconds === 0;
+  const stateLabel = isDone ? "완료!" : running ? "진행 중" : "대기 중";
+
+  document.getElementById("root").innerHTML = `
+    <div class="app">
+      <div class="ring-wrap ${isDone ? "angry" : ""}">
+        <svg viewBox="0 0 220 220">
+          <circle class="ring-ear ${isDone ? "angry" : ""}" cx="46" cy="44" r="36"></circle>
+          <circle class="ring-ear ${isDone ? "angry" : ""}" cx="174" cy="44" r="36"></circle>
+          <circle class="ring-face ${isDone ? "angry" : ""}" cx="110" cy="110" r="100"></circle>
+          <circle class="ring-bg" cx="110" cy="110" r="${RADIUS}"></circle>
+          <circle class="ring-fg ${isDanger || isDone ? "danger" : ""}" cx="110" cy="110" r="${RADIUS}"
+            stroke-dasharray="${CIRC}" stroke-dashoffset="${offset}"></circle>
+        </svg>
+        <div class="ring-center">
+          <div class="ring-emoji">${isDone ? "🐵💢" : "🐵"}</div>
+          <div class="time-display ${isDanger || isDone ? "danger" : ""}">${formatTime(remainingSeconds)}</div>
+          <div class="state-label">${stateLabel}</div>
+        </div>
+      </div>
+
+      <div class="done-banner ${isDone ? "show" : ""}">🐵 우끼! 우끼!</div>
+
+      <div class="presets">
+        ${PRESETS.map(p => `
+          <button class="preset-btn ${totalSeconds === p && remainingSeconds === totalSeconds ? "active" : ""}" data-preset="${p}" ${running ? "disabled" : ""}>${p < 60 ? `${p}초` : `${p/60}분`}</button>
+        `).join("")}
+      </div>
+
+      <div class="custom-row">
+        <span class="custom-label">직접 설정</span>
+        <input id="customMin" class="custom-input" type="number" min="0" inputmode="numeric" placeholder="분" ${running ? "disabled" : ""} />
+        <span class="custom-sep">분</span>
+        <input id="customSec" class="custom-input" type="number" min="0" max="59" inputmode="numeric" placeholder="초" ${running ? "disabled" : ""} />
+        <span class="custom-sep">초</span>
+      </div>
+      <div class="controls">
+        <button class="act btn-reset" id="applyCustomBtn" ${running ? "disabled" : ""} style="flex:none; padding:14px 16px;">설정</button>
+        ${running
+          ? `<button class="act btn-pause" id="pauseBtn">일시정지</button>`
+          : `<button class="act btn-start" id="startBtn" ${remainingSeconds<=0 ? "disabled" : ""}>${remainingSeconds < totalSeconds && remainingSeconds > 0 ? "이어서 시작" : "시작"}</button>`
+        }
+        <button class="act btn-reset" id="resetBtn">초기화</button>
+      </div>
+    </div>
+  `;
+
+  document.querySelectorAll("[data-preset]").forEach(btn => {
+    btn.addEventListener("click", () => setPreset(parseInt(btn.dataset.preset, 10)));
+  });
+  document.getElementById("applyCustomBtn").addEventListener("click", applyCustom);
+  const startBtn = document.getElementById("startBtn");
+  if(startBtn) startBtn.addEventListener("click", start);
+  const pauseBtn = document.getElementById("pauseBtn");
+  if(pauseBtn) pauseBtn.addEventListener("click", pause);
+  document.getElementById("resetBtn").addEventListener("click", reset);
+}
+
+render();
+</script>
 </body>
 </html>
+위 코드 전체를 복사해서, 편집창에서 기존 내용을 다 지운 자리에 붙여넣고 Commit changes...를 누르시면 돼요.
+
+
+
+
+
+
+
+Claude는 AI이며 실수할 수 있습니다. 응답을 다시 한번 확인해 주세요.
+
+
+Timer app · HTML
+
+
+
+
+
+
